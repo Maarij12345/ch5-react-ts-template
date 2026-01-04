@@ -122,6 +122,7 @@ export default (config: { mode: string; }) => {
     base: './',
     build: {
       sourcemap: isDevelopment,
+       cssTarget: 'chrome61',
     },
   });
 };

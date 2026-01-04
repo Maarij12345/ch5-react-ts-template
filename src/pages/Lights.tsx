@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import Backbtn from '../components/backbtn';
+import Redselectbtn from '../components/redselectbtn';  
+import { useNavigate } from 'react-router-dom'; // allows page flipping to get proper feedback from control system
 
 
 function Lights() {
   const [digitalState, setDigitalState] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     // Subscribe to Digital Join 1 (feedback)
     const d1Id = window.CrComLib.subscribeState(
@@ -33,15 +35,25 @@ function Lights() {
 
   return (
     <div className="page">
-      <Backbtn />
+  <div className="header">
+    <Backbtn />
+    <h1 className="title">Lights</h1>
+  </div>
+   <div className="selection-container">
+   <Redselectbtn
+    label="ROOMS"
+    targetPath="/pages/lights"
+    onClick={() => navigate('/pages/lights')}
+  />
+  
+  <Redselectbtn
+    label="SCENES"
+    targetPath="/pages/scenes"
+    onClick={() => navigate('/pages/scenes')}
+  />
+</div>
+</div>
 
-      <h1>Lights Page</h1>
-
-      <button onClick={pulseDigital} className={`light-btn ${digitalState ? 'light-on' : 'light-off'}`}>
-        mute
-      </button>
-
-    </div>
   );
 }
 
