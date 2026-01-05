@@ -3,13 +3,14 @@
 import { useMemo } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import useWebXPanel from './hooks/useWebXPanel';
-
+import './pages/css/lightsubpage.css' // Your CSS
 import './pages/css/App.css' // Your CSS
 import Lights from './pages/Lights';
 import Audio from './pages/Audio';
 import Home from './pages/Home';
 import Zones from './pages/zones';
 import Scenes from './pages/Scenes';
+import RoomTile from './components/LightTile';
 
 
 // Initialize eruda for panel/app debugging capabilities (in dev mode only)
@@ -43,6 +44,7 @@ function App() {
          <Route path="/pages/audio" element={<Audio />} />
          <Route path="/pages/zones" element={<Zones />} />
          <Route path="/pages/scenes" element={<Scenes />} />
+         <Route path="/pages/LightTile/:roomId" element={<RoomTile />} />
       </Routes>
     </>
   );

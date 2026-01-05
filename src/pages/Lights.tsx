@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
-import Backbtn from '../components/backbtn';
-import Redselectbtn from '../components/redselectbtn';  
+import HomeBtn from '../components/homebtn';
+import Redselectbtn from '../components/redselectbtn';
 import { useNavigate } from 'react-router-dom'; // allows page flipping to get proper feedback from control system
 
 
 function Lights() {
+
+
+
   const [digitalState, setDigitalState] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
@@ -33,27 +36,47 @@ function Lights() {
     }, 100);
   };
 
+
+
+
+  const room = [
+    { id: 'livingroom', name: 'Living Room' },
+    { id: 'kitchen', name: 'Kitchen' },
+    { id: 'bedroom', name: 'Bedroom' },
+  ];
+
+
   return (
     <div className="page">
-  <div className="header">
-    <Backbtn />
-    <h1 className="title">Lights</h1>
-  </div>
-   <div className="selection-container">
-   <Redselectbtn
-    label="ROOMS"
-    targetPath="/pages/lights"
-    onClick={() => navigate('/pages/lights')}
-  />
-  
-  <Redselectbtn
-    label="SCENES"
-    targetPath="/pages/scenes"
-    onClick={() => navigate('/pages/scenes')}
-  />
-</div>
-</div>
+      <div className="header">
+        <HomeBtn />
+        <h1 className="title">Lights</h1>
+      </div>
+      <div className="selection-container">
+        <Redselectbtn
+          label="ROOMS"
+          targetPath="/pages/lights"
+          onClick={() => navigate('/pages/lights')}
+        />
 
+        <Redselectbtn
+          label="SCENES"
+          targetPath="/pages/scenes"
+          onClick={() => navigate('/pages/scenes')} />
+      </div>
+
+
+
+      <h2>First Floor</h2>
+      {room.map(room => (
+        <button
+          key={room.id}
+          onClick={() => navigate(`/pages/LightTile/${room.id}`)}
+        >
+          {room.name}
+        </button>
+      ))}
+    </div>
   );
 }
 

@@ -194,6 +194,7 @@ body {
   background-color: transparent;
   border: 2px solid transparent; /* reserve space */
   border-radius: 20px;
+  
 
   box-sizing: border-box; /* critical */
   transition: border-color 0.2s ease, background-color 0.2s ease;
