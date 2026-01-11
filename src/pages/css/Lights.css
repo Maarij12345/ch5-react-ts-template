@@ -1,0 +1,45 @@
+.room-button {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    
+    position: relative;
+    background-color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-size: 20px;
+    
+    border: none;
+    
+    display: flex;
+    flex-direction: row;
+   
+    
+    padding: 10px;
+}
+.button-row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+.room-on {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+.room-off {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+@media (min-width: 1025px) {
+    .room-button {
+        width: 150px;
+        height: 150px;
+        font-size: 24px;
+    }
+}

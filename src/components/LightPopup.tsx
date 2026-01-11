@@ -1,0 +1,84 @@
+import { useParams } from 'react-router-dom';
+import { lightPopup } from '../data/lightpopup';
+import Backbtn from './backbtn';
+import { useState, useEffect } from 'react';
+
+function RoomTile() {
+  const { roomId } = useParams<{ roomId: string }>();
+  const room = roomId ? lightPopup[roomId] : null;
+
+  if (!room) {
+    return <p>Room not found</p>;
+  }
+
+  // feedback state PER LIGHT (index-based)
+  const [feedback, setFeedback] = useState<Record<number, boolean>>({});
+
+  // pulse digital join
+  const pulseDigital = (join: string) => {
+    console.log('PULSE digital', join);
+    window.CrComLib.publishEvent('b', join, true);
+    setTimeout(() => {
+      window.CrComLib.publishEvent('b', join, false);
+    }, 100);
+  };
+
+  // subscribe to feedback joins
+  useEffect(() => {
+    const subscriptionIds: number[] = [];
+
+    room.onsig.forEach((join, index) => {
+      const subId = window.CrComLib.subscribeState(
+        'b',
+        join,
+        (value: boolean) => {
+          setFeedback(prev => ({
+            ...prev,
+            [index]: value,
+          }));
+        }
+      );
+
+      subscriptionIds.push(subId);
+    });
+
+    return () => {
+      room.onsig.forEach((join, index) => {
+        window.CrComLib.unsubscribeState('b', join, subscriptionIds[index]);
+      });
+    };
+  }, [room]);
+
+  return (
+    <div className="room-tile">
+      <Backbtn />
+      <h2 className="roomtitle">{roomId}</h2>
+
+      {room.lights.map((light, index) => {
+        const isOn = feedback[index] ?? false;
+        console.log("this is a test" + isOn);
+        return (
+          <div key={light} className="light-row">
+            <h3>{light}</h3>
+
+            <button
+              className={`light-btn ${isOn ? 'light-on' : 'light-off'}`}
+              onClick={() => pulseDigital(room.onsig[index])}
+            >
+              ON
+            </button>
+
+            <button
+              className={`light-btn ${!isOn ? 'light-on' : 'light-off'}`}
+              onClick={() => pulseDigital(room.offsig[index])}
+            >
+              OFF
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+export default RoomTile;

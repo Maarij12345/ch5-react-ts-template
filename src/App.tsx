@@ -5,12 +5,13 @@ import { Routes, Route } from 'react-router-dom';
 import useWebXPanel from './hooks/useWebXPanel';
 import './pages/css/lightsubpage.css' // Your CSS
 import './pages/css/App.css' // Your CSS
+import './pages/css/Lights.css'
 import Lights from './pages/Lights';
 import Audio from './pages/Audio';
 import Home from './pages/Home';
 import Zones from './pages/zones';
 import Scenes from './pages/Scenes';
-import RoomTile from './components/LightTile';
+import RoomTile from './components/LightPopup';
 
 
 // Initialize eruda for panel/app debugging capabilities (in dev mode only)
@@ -21,7 +22,7 @@ if (import.meta.env.VITE_APP_ENV === 'development') {
 }
 
 function App() {
-  
+
 
   const webXPanelConfig = useMemo(() => ({
     ipId: '0x03',
@@ -35,16 +36,16 @@ function App() {
   return (
     <>
       {/* NAVIGATION BUTTONS (Crestron-style page flips) */}
-      
+
 
       {/* ROUTES */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pages/lights" element={<Lights />} />
-         <Route path="/pages/audio" element={<Audio />} />
-         <Route path="/pages/zones" element={<Zones />} />
-         <Route path="/pages/scenes" element={<Scenes />} />
-         <Route path="/pages/LightTile/:roomId" element={<RoomTile />} />
+        <Route path="/pages/audio" element={<Audio />} />
+        <Route path="/pages/zones" element={<Zones />} />
+        <Route path="/pages/scenes" element={<Scenes />} />
+        <Route path="/pages/LightTile/:roomId" element={<RoomTile />} />
       </Routes>
     </>
   );

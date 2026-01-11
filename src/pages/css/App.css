@@ -20,12 +20,14 @@ body {
 .top-banner {
   position: relative;
   width: 100vw;
+  aspect-ratio: 900 / 601;
   max-width: 100%;
     background-image: url('/src/assets/images/home.webp');
   background-size: cover;
   background-position: center;
   height: 200px;
   display: flex;
+ 
   align-items: flex-end;
   text-shadow: 1px 1px 5px #f4f4f7;
 }

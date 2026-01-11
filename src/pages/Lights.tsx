@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import HomeBtn from '../components/homebtn';
 import Redselectbtn from '../components/redselectbtn';
+import { lightPopup, RoomConfig } from '../data/lightpopup';
 import { useNavigate } from 'react-router-dom'; // allows page flipping to get proper feedback from control system
 
 
@@ -8,43 +9,39 @@ function Lights() {
 
 
 
-  const [digitalState, setDigitalState] = useState(false);
   const navigate = useNavigate();
+function RoomTile({ roomId, room }: { roomId: string; room: RoomConfig }) {
+  const [digitalState, setDigitalState] = useState(false);
+
   useEffect(() => {
-    // Subscribe to Digital Join 1 (feedback)
     const d1Id = window.CrComLib.subscribeState(
       'b',
-      '1',
+      room.tilebtnon,
       (value: boolean) => {
-        console.log('Feedback digital 1 =', value);
         setDigitalState(value);
       }
     );
 
-    // Cleanup on unmount
     return () => {
-      window.CrComLib.unsubscribeState('b', '1', d1Id);
+      window.CrComLib.unsubscribeState('b', room.tilebtnon, d1Id);
     };
-  }, []);
-
+  }, [room.tilebtnon]);
+}
   // Pulse Digital Join 1 (for SIMPL pulse logic)
-  const pulseDigital = () => {
-    console.log('PULSE digital 1');
-    window.CrComLib.publishEvent('b', '1', true);
+  const pulseDigital = (join: string) => {
+    
+    window.CrComLib.publishEvent('b', join, true);
+    console.log("pulse join" + join);
     setTimeout(() => {
-      window.CrComLib.publishEvent('b', '1', false);
+      window.CrComLib.publishEvent('b', join, false);
+      
     }, 100);
   };
 
 
 
 
-  const room = [
-    { id: 'livingroom', name: 'Living Room' },
-    { id: 'kitchen', name: 'Kitchen' },
-    { id: 'bedroom', name: 'Bedroom' },
-  ];
-
+  
 
   return (
     <div className="page">
@@ -68,14 +65,18 @@ function Lights() {
 
 
       <h2>First Floor</h2>
-      {room.map(room => (
-        <button
-          key={room.id}
-          onClick={() => navigate(`/pages/LightTile/${room.id}`)}
-        >
-          {room.name}
-        </button>
-      ))}
+      <div className='button-row'>
+     {Object.entries(lightPopup).map(([roomId, room]) => ( // room lets us access each room config in lightPopup
+  <div className="room-button" key={roomId} onClick={() => navigate(`/pages/LightTile/${roomId}`)}>
+    {room.label}
+    <button className="room-on" onClick={(event) => { event.stopPropagation(); pulseDigital(room.tilebtnon); } }></button>
+
+    <button className="room-off"onClick={(event) => { event.stopPropagation(); pulseDigital(room.tilebtnoff);  } }></button>
+
+  </div>
+))}
+</div>
+      
     </div>
   );
 }
