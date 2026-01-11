@@ -22,18 +22,65 @@
     gap: 20px;
 
 }
-.room-on {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    left: 10px;
+
+.room-off-fb-low {
+  position: absolute;
+ 
+  width: 30px;      /* 👈 make this bigger */
+  height: 30px;     /* 👈 and this */
+  background-image: url('/src/assets/images/lightofffblow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;   /* 👈 IMPORTANT */
+  border: none;
+  padding: 0;
+  background-color: transparent;
+   left: 10px;
     bottom: 10px;
 }
-.room-off {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 10px;
+.room-off-fb-high {
+  position: absolute;
+ 
+  width: 30px;      /* 👈 make this bigger */
+  height: 30px;     /* 👈 and this */
+  background-image: url('/src/assets/images/lightofffbhigh.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;   /* 👈 IMPORTANT */
+  border: none;
+  padding: 0;
+  background-color: transparent;
+   right: 10px;
+    bottom: 10px;
+}
+.room-on-fb-high {
+  position: absolute;
+ 
+  width: 30px;      /* 👈 make this bigger */
+  height: 30px;     /* 👈 and this */
+  background-image: url('/src/assets/images/lightonfbhigh.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;   /* 👈 IMPORTANT */
+  border: none;
+  padding: 0;
+  background-color: transparent;
+   right: 10px;
+    bottom: 10px;
+}
+.room-on-fb-low {
+  position: absolute;
+ 
+  width: 30px;      /* 👈 make this bigger */
+  height: 30px;     /* 👈 and this */
+  background-image: url('/src/assets/images/lightonfblow.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;   /* 👈 IMPORTANT */
+  border: none;
+  padding: 0;
+  background-color: transparent;
+   right: 10px;
     bottom: 10px;
 }
 @media (min-width: 1025px) {
