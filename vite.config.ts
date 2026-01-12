@@ -50,9 +50,13 @@ export default (config: { mode: string; }) => {
       VitePWA({
         base: '/ch5-react-ts-template/',
         registerType: 'autoUpdate',
-        workbox: {
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,jpg}'], // Pattern to match precached files to return to the client when offline
-          runtimeCaching: [
+       workbox: {
+  globPatterns: ['**/*.{js,css,ico,png,svg,jpg}'],   // REMOVE html
+  globIgnores: ['**/index.html'],                   // Explicitly ignore CH5 bundle
+  maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,  // Allow large CH5 bundles if needed
+
+  runtimeCaching: [
+
             {
               urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i, // Example for caching Google Fonts (this demo uses Google Roboto in the App.css)
               handler: 'CacheFirst',

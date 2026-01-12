@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import HomeBtn from '../components/homebtn';
 import Redselectbtn from '../components/redselectbtn';
 import { lightPopup } from '../data/lightpopup';
-import RoomTile from '../components/RoomTile';
+import RoomTile from '../components/LightTile';
 
 function Lights() {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ function Lights() {
           onClick={() => navigate('/pages/scenes')} />
       </div>
 
-      <h2>First Floor</h2>
+      <h2 className='gradient-text'>First Floor</h2>
 
       <div className="button-row">
         {Object.entries(lightPopup).map(([roomId, room]) => (
@@ -48,6 +48,7 @@ function Lights() {
           />
         ))}
       </div>
+       <h2>Second Floor</h2>
     </div>
   );
 }

@@ -1,17 +1,37 @@
+.room-button,
+.light-btn,
+.offlightbtn,
+.room-on-fb-high,
+.room-on-fb-low,
+.room-off-fb-high,
+.room-off-fb-low {
+  flex-shrink: 0;
+}
+
+.gradient-text {
+  background: linear-gradient(180deg, #9500ff, #ff7575);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 .room-button {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 20px;
     
     position: relative;
-    background-color: rgb(255, 0, 0);
+    background-size: cover;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
     font-weight: bold;
     font-size: 20px;
     
     border: none;
     
-    display: flex;
-    flex-direction: row;
+   
    
     
     padding: 10px;
@@ -20,14 +40,17 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
 
 }
 
 .room-off-fb-low {
   position: absolute;
  
-  width: 30px;      /* 👈 make this bigger */
-  height: 30px;     /* 👈 and this */
+  width:40px;      /* 👈 make this bigger */
+  height: 40px;     /* 👈 and this */
   background-image: url('/src/assets/images/lightofffblow.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -41,8 +64,8 @@
 .room-off-fb-high {
   position: absolute;
  
-  width: 30px;      /* 👈 make this bigger */
-  height: 30px;     /* 👈 and this */
+  width: 40px;      /* 👈 make this bigger */
+  height: 40px;     /* 👈 and this */
   background-image: url('/src/assets/images/lightofffbhigh.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -56,8 +79,8 @@
 .room-on-fb-high {
   position: absolute;
  
-  width: 30px;      /* 👈 make this bigger */
-  height: 30px;     /* 👈 and this */
+  width: 40px;      /* 👈 make this bigger */
+  height: 40px;     /* 👈 and this */
   background-image: url('/src/assets/images/lightonfbhigh.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -71,8 +94,8 @@
 .room-on-fb-low {
   position: absolute;
  
-  width: 30px;      /* 👈 make this bigger */
-  height: 30px;     /* 👈 and this */
+  width: 40px;      /* 👈 make this bigger */
+  height: 40px;     /* 👈 and this */
   background-image: url('/src/assets/images/lightonfblow.svg');
   background-repeat: no-repeat;
   background-position: center;
@@ -83,6 +106,7 @@
    right: 10px;
     bottom: 10px;
 }
+
 @media (min-width: 1025px) {
     .room-button {
         width: 150px;
@@ -90,3 +114,4 @@
         font-size: 24px;
     }
 }
+

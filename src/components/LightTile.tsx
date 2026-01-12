@@ -17,12 +17,11 @@ function RoomTile({ roomId, room, pulseDigital, navigate }) {
 
   return (
     <div
-      className="room-button" 
+      className="room-button" style={{ backgroundImage: `url(${room.image})` }}
       onClick={() => navigate(`/pages/LightTile/${roomId}`)}
-    >
-      <div className="room-label">{room.label}</div>
-
-      <div className="room-controls">
+    >{room.label}
+    <div className="room-controls" >
+     
         <button
           className={`room-off-fb-low ${digitalState ? 'room-off-fb-high' : 'room-off-fb-low'}`}
           onClick={(e) => {
