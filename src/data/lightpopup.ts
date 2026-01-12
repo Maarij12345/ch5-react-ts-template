@@ -31,7 +31,27 @@ export const lightPopup: Record<string, RoomConfig> = {
     tilebtnon: '8',
     tilebtnoff: '17',
   },
-  office: {
+  dining: {
+    label: 'Dining',
+    lights: ['Main'],
+    onsig: ['3'],
+    offsig: ['3'],
+    brightupsig: ['2'],
+    brightlowsig: ['7'],
+    tilebtnon: '8',
+    tilebtnoff: '97',
+},
+Library: {
+    label: 'Library',
+    lights: ['Main'],
+    onsig: ['3'],
+    offsig: ['3'],
+    brightupsig: ['2'],
+    brightlowsig: ['7'],
+    tilebtnon: '8',
+    tilebtnoff: '97',
+},
+Office: {
     label: 'Office',
     lights: ['Main'],
     onsig: ['3'],
@@ -40,4 +60,9 @@ export const lightPopup: Record<string, RoomConfig> = {
     brightlowsig: ['7'],
     tilebtnon: '8',
     tilebtnoff: '97',
-}}
+},
+
+
+
+
+}

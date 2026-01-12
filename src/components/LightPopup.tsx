@@ -58,22 +58,21 @@ function RoomTile() {
         const isOn = feedback[index] ?? false;
         console.log("this is a test" + isOn);
         return (
-          <div key={light} className="light-row">
+          <div key={light} >
             <h3>{light}</h3>
+            <div className="light-row">
+            <button
+              className={`offlightbtn ${isOn ? 'offlightoff' : 'offlighton'}`}
+              onClick={() => pulseDigital(room.offsig[index])}>
+            
+            </button>
 
             <button
               className={`light-btn ${isOn ? 'light-on' : 'light-off'}`}
-              onClick={() => pulseDigital(room.onsig[index])}
-            >
-              ON
+              onClick={() => pulseDigital(room.onsig[index])}>
+             
             </button>
-
-            <button
-              className={`light-btn ${!isOn ? 'light-on' : 'light-off'}`}
-              onClick={() => pulseDigital(room.offsig[index])}
-            >
-              OFF
-            </button>
+            </div>
           </div>
         );
       })}
@@ -82,3 +81,5 @@ function RoomTile() {
 }
 
 export default RoomTile;
+//   <img src={isOn ? '/src/assets/images/blackcrossedlight.svg' : '/src/assets/images/whitecrossedlight.svg'} alt="" />
+//  <img src={isOn ? '/src/assets/images/light.svg' : '/src/assets/images/blacklight.svg'} alt="" />
