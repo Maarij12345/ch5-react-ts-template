@@ -1,16 +1,16 @@
 import { useParams } from 'react-router-dom';
-import { lightPopup } from '../data/lightpopup';
+import { lightPopup3 } from '../data/lightpopupthirdrow';
 
 import Backbtn from './backbtn';
 import { useState, useEffect } from 'react';
 
 function RoomTile() {
   const { roomId } = useParams<{ roomId: string }>();
-  const room = roomId ? lightPopup[roomId] : null;
+  const room = roomId ? lightPopup3[roomId] : null;
  
 
   if (!room) {
-    return <p>Room not found</p>;
+    return <p>room not found but refrencing this file</p>;
   }
 
   // feedback state PER LIGHT (index-based)
@@ -54,17 +54,17 @@ function RoomTile() {
 
   return (
     <div className="room-tile">
-      <div className='header'>
+     <div className='header'>
       <Backbtn />
       <h1 className="title">{roomId}</h1>
 </div>
+
       {room.lights.map((light, index) => {
         const isOn = feedback[index] ?? false;
         console.log(isOn);
         return (
           <div key={light} >
             <h2>{light}</h2>
-            <div className='lightbtns'>
             <div className="light-row">
             <button
               className={`offlightbtn ${isOn ? 'offlightoff' : 'offlighton'}`}
@@ -77,19 +77,6 @@ function RoomTile() {
               onClick={() => pulseDigital(room.onsig[index])}>
              
             </button>
-            </div>
-            <div className='brightness-row'>
-               <button className='lowerlight' onPointerDown={() => { console.log("Pressed" + room.brightlowsig[index]); window.CrComLib.publishEvent("b", room.brightlowsig[index], true); }}
-                      onPointerUp={() => {  console.log("Released");  window.CrComLib.publishEvent("b", room.brightlowsig[index], false);}}
-                      onPointerLeave={() => { window.CrComLib.publishEvent("b", room.brightlowsig[index], false);}}>
-
-              </button>
-              <button className='raiselight'onPointerDown={() => { console.log("Pressed" + room.brightupsig[index]); window.CrComLib.publishEvent("b", room.brightupsig[index], true); }}
-                      onPointerUp={() => {  console.log("Released" + room.brightupsig[index]);  window.CrComLib.publishEvent("b", room.brightupsig[index], false);}}
-                      onPointerLeave={() => { window.CrComLib.publishEvent("b", room.brightupsig[index], false);}}>
-
-              </button>
-            </div>
             </div>
           </div>
         );

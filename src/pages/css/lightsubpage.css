@@ -19,13 +19,46 @@
   height: 80px;
   font-size: 20px;
   border-radius: 30px;
-  
+  border: none;
   transition: background-color 0.2s ease;
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
   
 }
+.light-row {
+  margin-left: 120px;
+}
+.brightness-row {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.lowerlight {
+  height: 80px;
+  width: 300px;
+  background-image: url('src/assets/images/lower.svg');
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-position: center;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.raiselight {
+  height: 80px;
+  width: 300px;
+  background-image: url('/src/assets/images/brightness.svg');
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-position: center;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 
+}
 .offlightoff{
      background-image: url('/src/assets/images/blackcrossedlight.svg');
  background-repeat: no-repeat;
@@ -37,7 +70,7 @@
  background-image: url('/src/assets/images/greycrossedoutlight.svg');
  background-repeat: no-repeat;
  background-position: center;
-
+border: none;
   color: black;
 }
 /* OFF state */
@@ -50,9 +83,49 @@
 
 /* ON state */
 .light-on {
- background-image: url('/src/assets/images/light.svg');
+ background-image: url('src/assets/images/light.svg');
  background-repeat: no-repeat;
  background-position: center;
   border: 2px solid #ffd700;
   color: black;
+}
+@media (max-width: 620px) {
+  .raiselight, .lowerlight {
+    width: 200px;
+  }
+
+   .light-row{
+    margin-left: 0px;
+    text-align: center;
+  }
+  
+  .brightness-row {
+    margin-left: 0px;
+   text-align: center;
+  }
+  .offlightbtn, .light-btn {
+    width: 150px;
+  }
+}
+@media (max-width: 420px) {
+  .raiselight, .lowerlight {
+    width: 170px;
+    height: 70px;
+  }
+   
+ .light-row{
+    margin-left: 0px;
+    text-align: center;
+  }
+  
+
+  .brightness-row {
+    margin-left: 0px;
+   text-align: center;
+  }
+  .offlightbtn,
+  .light-btn {
+    width: 130px;
+    height: 80px;
+  }
 }

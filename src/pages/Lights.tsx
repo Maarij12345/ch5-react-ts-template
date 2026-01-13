@@ -2,7 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import HomeBtn from '../components/homebtn';
 import Redselectbtn from '../components/redselectbtn';
 import { lightPopup } from '../data/lightpopup';
+import { lightPopup2 } from '../data/lightpopupsecondrow'
+import { lightPopup3 } from '../data/lightpopupthirdrow'
 import RoomTile from '../components/LightTile';
+import RoomTile2 from '../components/LightTile2';
+import RoomTile3 from '../components/LightTile3';
+
+
 
 function Lights() {
   const navigate = useNavigate();
@@ -49,6 +55,36 @@ function Lights() {
         ))}
       </div>
        <h2>Second Floor</h2>
+
+
+         <div className="button-row">
+        {Object.entries(lightPopup2).map(([roomId, room]) => (
+          <RoomTile2
+            key={roomId}
+            roomId={roomId}
+            room={room}
+            pulseDigital={pulseDigital}
+            navigate={navigate}
+          />
+        ))}
+        
+      </div>
+        <h2>test</h2>
+          <div className="button-row">
+        {Object.entries(lightPopup3).map(([roomId, room]) => (
+          <RoomTile3
+            key={roomId}
+            roomId={roomId}
+            room={room}
+            pulseDigital={pulseDigital}
+            navigate={navigate}
+          />
+        ))}
+        
+      </div>
+
+
+      
     </div>
   );
 }

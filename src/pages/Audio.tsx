@@ -58,6 +58,8 @@ function Audio() {
           onClick={() => navigate('/pages/zones')}
         />
       </div>
+      <a href="https://www.google.com" target="_blank">Open Google</a>
+
     </div>
   );
 }

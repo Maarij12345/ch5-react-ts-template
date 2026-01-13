@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function RoomTile({ roomId, room, pulseDigital, navigate }) {
+function RoomTile2({ roomId, room, pulseDigital, navigate }) {
   const [digitalState, setDigitalState] = useState(false);
 
   useEffect(() => {
@@ -18,9 +18,7 @@ function RoomTile({ roomId, room, pulseDigital, navigate }) {
   return (
     <div
       className="room-button" style={{ backgroundImage: `url(${room.image})` }}
-      onClick={() => {console.log("roomId =", roomId); navigate(`/pages/LightTile/${roomId}`);}}
-
-
+      onClick={() => navigate(`/pages/test/${roomId}`)}
     >{room.label}
     <div className="room-controls" >
      
@@ -44,4 +42,4 @@ function RoomTile({ roomId, room, pulseDigital, navigate }) {
   );
 }
 
-export default RoomTile;
+export default RoomTile2;

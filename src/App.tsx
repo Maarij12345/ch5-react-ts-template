@@ -12,6 +12,8 @@ import Home from './pages/Home';
 import Zones from './pages/zones';
 import Scenes from './pages/Scenes';
 import RoomTile from './components/LightPopup';
+import RoomTile2 from './components/LightPopup2'
+import RoomTile3 from './components/LightPopup3'
 
 
 // Initialize eruda for panel/app debugging capabilities (in dev mode only)
@@ -46,6 +48,10 @@ function App() {
         <Route path="/pages/zones" element={<Zones />} />
         <Route path="/pages/scenes" element={<Scenes />} />
         <Route path="/pages/LightTile/:roomId" element={<RoomTile />} />
+         <Route path="/pages/test/:roomId" element={<RoomTile2 />} />
+         <Route path="/pages/lightrow3/:roomId" element={<RoomTile3 />} />
+   
+
       </Routes>
     </>
   );

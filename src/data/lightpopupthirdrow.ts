@@ -3,6 +3,12 @@ import tvrm from '../assets/images/tvrm.jpg'
 import kitchen from '../assets/images/kitchen.jpg'
 import dining from '../assets/images/Dining.jpg'
 import library from '../assets/images/library.jpg'
+import pub from '../assets/images/pub.jpg'
+
+
+
+
+
 export type RoomConfig = {
   onsig: string[];
   offsig: string[];
@@ -16,20 +22,20 @@ export type RoomConfig = {
 
 };
 
-export const lightPopup: Record<string, RoomConfig> = {
-    'Great Room': { // key is room ID
-    label: 'Great Room',
+export const lightPopup3: Record<string, RoomConfig> = {
+    "Pub": { // key is room ID
+    label: "Pub",
     lights: ['ceiling', 'upper cabinets'],
     tilebtnon: '8',
     tilebtnoff: '7',
     onsig: ['8', '27'],
     offsig: ['7', '28'],
-    brightupsig: ['5', ''],
-    brightlowsig: ['6', '8'],
-    image: greatrm,
+    brightupsig: ['5', '6'],
+    brightlowsig: ['7', '8'],
+    image: pub,
   },
-  kitchen: { // key is room ID
-    label: 'Kitchen',
+  "Theater": { // key is room ID
+    label: "Theater",
     lights: ['ceiling', 'upper cabinets'],
     tilebtnon: '8',
     tilebtnoff: '7',
@@ -39,8 +45,8 @@ export const lightPopup: Record<string, RoomConfig> = {
     brightlowsig: ['7', '8'],
     image: kitchen,
   },
-  "TV room": {
-    label: 'TV Room',
+  "Living Room": {
+    label: "Living Room",
     lights: ['Main', 'Lamps'],
     onsig: ['3', '4'],
     offsig: ['3', '4'],
@@ -50,8 +56,8 @@ export const lightPopup: Record<string, RoomConfig> = {
     tilebtnoff: '17',
     image: tvrm,
   },
-  dining: {
-    label: 'Dining',
+  "Stairs": {
+    label: 'Stairs',
     lights: ['Main'],
     onsig: ['3'],
     offsig: ['3'],
@@ -61,28 +67,7 @@ export const lightPopup: Record<string, RoomConfig> = {
     tilebtnoff: '97',
     image: dining,
 },
-Library: {
-    label: 'Library',
-    lights: ['Main'],
-    onsig: ['3'],
-    offsig: ['3'],
-    brightupsig: ['2'],
-    brightlowsig: ['7'],
-    tilebtnon: '8',
-    tilebtnoff: '97',
-    image: library,
-},
-Office: {
-    label: 'Office',
-    lights: ['Main'],
-    onsig: ['3'],
-    offsig: ['3'],
-    brightupsig: ['2'],
-    brightlowsig: ['7'],
-    tilebtnon: '8',
-    tilebtnoff: '97',
-    image: greatrm,
-},
+
 
 
 
