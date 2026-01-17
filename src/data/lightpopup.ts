@@ -24,8 +24,8 @@ export const lightPopup: Record<string, RoomConfig> = {
     tilebtnoff: '7',
     onsig: ['8', '27'],
     offsig: ['7', '28'],
-    brightupsig: ['5', ''],
-    brightlowsig: ['6', '8'],
+    brightupsig: ['57', '49'],
+    brightlowsig: ['58', '50'],
     image: greatrm,
   },
   kitchen: { // key is room ID

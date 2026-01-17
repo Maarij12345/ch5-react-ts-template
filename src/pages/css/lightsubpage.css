@@ -35,7 +35,7 @@
 .lowerlight {
   height: 80px;
   width: 300px;
-  background-image: url('src/assets/images/lower.svg');
+  background-image: url('../lower.svg');
   background-repeat: no-repeat;
   background-size: 35px;
   background-position: center;
@@ -58,6 +58,12 @@
   background-color: #ffffff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 
+}
+.raiselight:active {
+  border: 2px solid #ffd700;
+}
+.lowerlight:active {
+  border: 2px solid black;
 }
 .offlightoff{
      background-image: url('/src/assets/images/blackcrossedlight.svg');
@@ -83,7 +89,7 @@ border: none;
 
 /* ON state */
 .light-on {
- background-image: url('src/assets/images/light.svg');
+ background-image: url('/src/assets/images/light.svg');
  background-repeat: no-repeat;
  background-position: center;
   border: 2px solid #ffd700;

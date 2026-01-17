@@ -5,11 +5,12 @@ import { Routes, Route } from 'react-router-dom';
 import useWebXPanel from './hooks/useWebXPanel';
 import './pages/css/lightsubpage.css' // Your CSS
 import './pages/css/App.css' // Your CSS
+import './pages/css/audiozones.css'
 import './pages/css/Lights.css'
 import Lights from './pages/Lights';
-import Audio from './pages/Audio';
+import Audio from './pages/Audiozones';
 import Home from './pages/Home';
-import Zones from './pages/zones';
+import Zones from './pages/audiogroups';
 import Scenes from './pages/Scenes';
 import RoomTile from './components/LightPopup';
 import RoomTile2 from './components/LightPopup2'

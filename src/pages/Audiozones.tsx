@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import Redselectbtn from '../components/redselectbtn';
 import { useNavigate } from 'react-router-dom'; // allows page flipping to get proper feedback from control system
 import HomeBtn from '../components/homebtn';
-
+import Audiozones from '../components/audiozonestiles';
+import {zonetiledata} from '../data/zonetiledata'
 function Audio() {
   const [digitalState, setDigitalState] = useState(false);
 
@@ -35,16 +36,19 @@ function Audio() {
     }, 100);
   };
 
-
+ // <button onClick={pulseDigital} className={`light-btn ${digitalState ? 'light-on' : 'light-off'}`}>
+     //   power
+   //   </button>
 
 
   return (
     <div className="page">
-      <HomeBtn />
-      <h1>Audio Page</h1>
-      <button onClick={pulseDigital} className={`light-btn ${digitalState ? 'light-on' : 'light-off'}`}>
-        power
-      </button>
+      <div className="header">
+              <HomeBtn />
+              <h1 className="title">Audio</h1>
+            </div>
+      
+    
       <div className="selection-container">
         <Redselectbtn
           label="ZONES"
@@ -58,7 +62,19 @@ function Audio() {
           onClick={() => navigate('/pages/zones')}
         />
       </div>
-      <a href="https://www.google.com" target="_blank">Open Google</a>
+      <div className='zone-grid'>
+      {zonetiledata.map(btn => ( //iterating through homeButtons array
+             <Audiozones //parent component
+               key={btn.id} // unique key prop for each button    
+               label={btn.label}
+               mutejoin={btn.mutejoin}
+              
+             />
+           ))}
+     
+     </div>
+     
+     
 
     </div>
   );

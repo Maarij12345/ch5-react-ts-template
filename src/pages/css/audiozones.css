@@ -1,0 +1,66 @@
+.zone-grid {
+  display: grid;
+ 
+  gap: 1rem;
+  padding: 1rem;
+grid-template-columns: repeat(2, 1fr);
+}
+.roomname {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    left: 20px;
+}
+.zone {
+  position: relative;
+  height: 12vw;   /* scales with width of viewport */
+  min-height: 80px;
+  max-height: 140px;
+
+  border-radius: 15px;
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+@media (max-width: 600px) {
+     .zone-grid {
+    grid-template-columns: repeat(1, 1fr);
+}
+}
+
+
+ #analogSlider {
+    
+    appearance: none;
+    width: 35%;
+    height: 1.1rem;
+    background-color: #d3d3d3;
+    border-radius: 15px;
+    outline: none;
+    position: absolute;
+    bottom: 20px;
+
+}
+
+#analogSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 2rem;
+    height: 2rem;
+    background: #0895e7;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#analogSlider::-moz-range-thumb {
+    width: 2rem;
+    height: 2rem;
+    background: #0895e7;
+    border-radius: 50%;
+    cursor: pointer;
+}
