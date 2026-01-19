@@ -67,7 +67,10 @@ function Audio() {
              <Audiozones //parent component
                key={btn.id} // unique key prop for each button    
                label={btn.label}
+               analogValue={btn.analogValue}
                mutejoin={btn.mutejoin}
+               songName={btn.songName}
+               imageurl={btn.imageurl} // bracket is being refrenced in the .ts file  the imageurl on the left side is the props
               
              />
            ))}

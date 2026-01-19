@@ -5,18 +5,12 @@
   padding: 1rem;
 grid-template-columns: repeat(2, 1fr);
 }
-.roomname {
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    position: absolute;
-    left: 20px;
-}
+
 .zone {
   position: relative;
   height: 12vw;   /* scales with width of viewport */
-  min-height: 80px;
-  max-height: 140px;
+  min-height: 120px;
+  max-height: 150px;
 
   border-radius: 15px;
   overflow: hidden;
@@ -26,6 +20,32 @@ grid-template-columns: repeat(2, 1fr);
 background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
 
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+.roomname {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    position: absolute;
+    left: 80px;
+    top: 13px;
+}
+
+#muteicon {
+    position: absolute;
+    left: 20px;
+    bottom: 11.8px;
+    color: white;
+    background-color: transparent;
+    font-size: 2.3em;
+}
+
+.urlimage {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 20px;
+    top: 30px;
+
 }
 @media (max-width: 600px) {
      .zone-grid {
@@ -38,13 +58,22 @@ background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
     
     appearance: none;
     width: 35%;
-    height: 1.1rem;
-    background-color: #d3d3d3;
+    height: 1.0rem;
+    background-color: #ff0000;
     border-radius: 15px;
     outline: none;
     position: absolute;
     bottom: 20px;
+    left: 75px;
 
+
+}
+.songname {
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    left: 80px;
+    top: 48px;
 }
 
 #analogSlider::-webkit-slider-thumb {
@@ -55,6 +84,7 @@ background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
     background: #0895e7;
     border-radius: 50%;
     cursor: pointer;
+    
 }
 
 #analogSlider::-moz-range-thumb {
