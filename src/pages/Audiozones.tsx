@@ -71,7 +71,8 @@ function Audio() {
                mutejoin={btn.mutejoin}
                songName={btn.songName}
                imageurl={btn.imageurl} // bracket is being refrenced in the .ts file  the imageurl on the left side is the props
-              
+               pausejoin={btn.pausejoin}
+               powerjoin={btn.powerjoin}
              />
            ))}
      

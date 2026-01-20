@@ -29,16 +29,56 @@ background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
     left: 80px;
     top: 13px;
 }
+#redpower {
+    color: #ff0000;
+     font-weight: bold;
+    font-size: 27px;
+    position: absolute;
+    right: 15px;
+    top: 18px;
+}
+#whitepower{
+     color: #ffffff;
+    font-weight: bold;
+    font-size: 27px;
+    position: absolute;
+    right: 15px;
+    top: 18px;
+
+}
 
 #muteicon {
     position: absolute;
     left: 20px;
     bottom: 11.8px;
     color: white;
-    background-color: transparent;
+    
     font-size: 2.3em;
 }
-
+#skip_previous {
+    color: white;
+   
+    font-size: 2.6em;
+     position: absolute;
+    right: 90px;
+    bottom: 5px;
+}
+#skip_next {
+    color: white;
+    
+    font-size: 2.6em;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+#pause {
+     color: white;
+    
+    font-size: 2.35em;
+    position: absolute;
+    right: 48px;
+    bottom: 7px;
+}
 .urlimage {
     width: 50px;
     height: 50px;
@@ -47,18 +87,12 @@ background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
     top: 30px;
 
 }
-@media (max-width: 600px) {
-     .zone-grid {
-    grid-template-columns: repeat(1, 1fr);
-}
-}
-
 
  #analogSlider {
     
     appearance: none;
     width: 35%;
-    height: 1.0rem;
+    height: 1em;
     background-color: #ff0000;
     border-radius: 15px;
     outline: none;
@@ -76,12 +110,13 @@ background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
     top: 48px;
 }
 
-#analogSlider::-webkit-slider-thumb {
+
+#analogSlider::-webkit-slider-thumb { 
     -webkit-appearance: none;
     appearance: none;
     width: 2rem;
     height: 2rem;
-    background: #0895e7;
+    background: #ffffff;
     border-radius: 50%;
     cursor: pointer;
     
@@ -90,7 +125,57 @@ background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
 #analogSlider::-moz-range-thumb {
     width: 2rem;
     height: 2rem;
-    background: #0895e7;
+    background: #ff0000;
     border-radius: 50%;
     cursor: pointer;
+}
+
+@media (max-width: 550px) {
+    #analogSlider {
+    position: absolute;
+    bottom: 20px;
+    height: 0.5em;
+    width: 40%;
+   
+}
+    .songname{
+        top:33px;
+    }
+     .zone-grid {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0.5rem;
+}
+ .urlimage{
+        top: 20px;
+    }
+.roomname{
+    top: 5px;
+}
+#muteicon {
+    bottom: 5px;
+
+}
+
+}
+
+
+@media (max-width: 1000px) {
+     #analogSlider {
+    position: absolute;
+    bottom: 20px;
+    height: 0.5em;
+    width: 40%;
+   
+}
+
+#muteicon {
+    bottom: 5px;
+
+}
+.urlimage{
+        top: 20px;
+    }
+.roomname{
+    top: 0px;
+}
 }
