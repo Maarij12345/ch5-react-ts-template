@@ -123,7 +123,7 @@ export default (config: { mode: string; }) => {
         },
       }),
     ],
-    base: './',
+    base: '/ch5-react-ts-template/',
     build: {
       sourcemap: isDevelopment,
        cssTarget: 'chrome61',
