@@ -10,7 +10,13 @@ type AudioZoneProps = {
   songName: string;
   imageurl: string;
   powerjoin: string;
-  
+  arrowjoin: string;
+  playera: string;
+  playerb: string;
+  Tvrmtv: string;
+  basementtv: string;
+  masterbedtv: string;
+  gymrmtv: string;
 };
 /*
 const pulseDigital = (join: string) => {
@@ -21,9 +27,10 @@ const pulseDigital = (join: string) => {
   }, 100);
 };
 */
-function Audiozones({ label, mutejoin, analogValue, songName, imageurl, pausejoin, powerjoin}: AudioZoneProps) {
+function Audiozones({label, mutejoin, analogValue, songName, imageurl, pausejoin, powerjoin, arrowjoin, playera, playerb, Tvrmtv, basementtv, masterbedtv, gymrmtv}: AudioZoneProps) {
   // ✅ hooks MUST be inside component
-  const [digitalState, setDigitalState] = useState(false);
+  const [digitalState, setDigitalState] = useState(false); //mute
+  const [arrowState, setArrowState] = useState(false);
   const [pauseState, setPausestate] = useState(false);
   const [powerState, setpowerState] = useState(false);
   const [analogState, setAnalogState] = useState(0);
@@ -41,6 +48,9 @@ function Audiozones({ label, mutejoin, analogValue, songName, imageurl, pausejoi
      const d3Id = window.CrComLib.subscribeState('b', powerjoin, (value: boolean) =>
       setpowerState(value)
     );
+    const d4Id = window.CrComLib.subscribeState('b', arrowjoin, (value: boolean) =>
+      setArrowState(value)
+    );
     const a1Id = window.CrComLib.subscribeState('n', analogValue, (value: number) =>
       setAnalogState(value)
     );
@@ -57,6 +67,7 @@ function Audiozones({ label, mutejoin, analogValue, songName, imageurl, pausejoi
       window.CrComLib.unsubscribeState('b', mutejoin, d1Id);
       window.CrComLib.unsubscribeState('b', pausejoin, d2Id);
       window.CrComLib.unsubscribeState('b', powerjoin, d3Id);
+      window.CrComLib.unsubscribeState('b', arrowjoin, d4Id);
       window.CrComLib.unsubscribeState('n', analogValue, a1Id);
       window.CrComLib.unsubscribeState('s', songName, s1Id);
       window.CrComLib.unsubscribeState('s', imageurl, s2Id);
@@ -66,24 +77,15 @@ function Audiozones({ label, mutejoin, analogValue, songName, imageurl, pausejoi
 
   const sendAnalog = (value: number) =>
     window.CrComLib.publishEvent('n', analogValue, value);
- const togglepause = (value:boolean)=>{
-    window.CrComLib.publishEvent('b', pausejoin, true);
+ 
+const pulseSource = (value: string) => {
+   window.CrComLib.publishEvent('b', value, true);
+   console.log(value)
     setTimeout(() => {
-      window.CrComLib.publishEvent('b', pausejoin, false);
-    }, 100);
- }
- const togglepower = (value:boolean)=>{
-    window.CrComLib.publishEvent('b', powerjoin, true);
-    setTimeout(() => {
-      window.CrComLib.publishEvent('b', powerjoin, false);
-    }, 100);
- }
- const toggleDigital = (value: boolean) =>{
-    window.CrComLib.publishEvent('b', mutejoin, true);
-    setTimeout(() => {
-      window.CrComLib.publishEvent('b', mutejoin, false);
+      window.CrComLib.publishEvent('b', value, false);
     }, 100);
 }
+
 //0895e7 - color i like
 const min = 0;
 const max = 65535;
@@ -94,17 +96,25 @@ const percent = ((analogState - min) / (max - min)) * 100;
   return (
     <div className="zone">
       <p className="roomname">{label}</p>
-
-     <span id="arrowicon"className= "material-symbols-outlined" onClick={() => { toggleDigital(!digitalState);}}>  {digitalState ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</span>
-     <span id="muteicon"className= "material-symbols-outlined" onClick={() => { toggleDigital(!digitalState);}}>  {digitalState ? 'volume_off' : 'volume_up'}</span>
-     <span id="pause" className="material-symbols-outlined" onClick={() => { togglepause(!pauseState);}}>  {pauseState ? 'play_arrow' : 'pause'}</span>
+      <div className={arrowState ? 'popup' : 'popup-hidden'}id="popup">
+        <p className="sourcelisttext" onClick={() => { pulseSource(playera);}}>Player A</p>
+        <p className="sourcelisttext" onClick={() => { pulseSource(playerb);}}>Player B</p>
+        <p className="sourcelisttext" onClick={() => { pulseSource(Tvrmtv);}}>Tv Room TV</p>
+        <p className="sourcelisttext" onClick={() => { pulseSource(basementtv);}}>Basement TV</p>
+        <p className="sourcelisttext" onClick={() => { pulseSource(gymrmtv);}}>Gym Room TV</p>
+        <p className="sourcelisttext" onClick={() => { pulseSource(masterbedtv);}}>MasterBed TV</p>
+    </div>
+      
+     <span id="arrowicon"className= "material-symbols-outlined" onClick={() => { pulseSource(arrowjoin);}}>  {arrowState ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</span>
+     <span id="muteicon"className= "material-symbols-outlined" onClick={() => { pulseSource(mutejoin);}}>  {digitalState ? 'volume_off' : 'volume_up'}</span>
+     <span id="pause" className="material-symbols-outlined" onClick={() => { pulseSource(pausejoin);}}>  {pauseState ? 'play_arrow' : 'pause'}</span>
     <span id="skip_next" className="material-symbols-outlined">skip_next</span>
     <span id="skip_previous" className="material-symbols-outlined">skip_previous</span>
        <input type="range" min={min} max={max} value={analogState} onChange={(e) => { sendAnalog(Number(e.target.value))} }
-  className="analogSlider" style={{ background: `linear-gradient(to right, #000000ff 0%, #000000ff ${percent}%, #ffffffff ${percent}%, #d3d3d3 100%)`,
+  className="analogSlider" style={{ background: `linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(255, 255, 255) ${percent}%, rgba(255, 255, 255, 0.58) ${percent}%, rgba(255, 255, 255, 0.58) 100%)`,
   }}
   id='analogSlider'/>
-  <span id={powerState ? 'redpower' : 'whitepower'} className="material-symbols-outlined" onClick={() => { togglepower(!powerState);}}>power_settings_new</span>
+  <span id={powerState ? 'redpower' : 'whitepower'} className="material-symbols-outlined" onClick={() => { pulseSource(powerjoin);}}>power_settings_new</span>
 <p className='songname'>{serialState}hi</p>
 
 <img src={imageurlserial} alt="" className='urlimage'/>

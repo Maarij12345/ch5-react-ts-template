@@ -5,7 +5,12 @@
   padding: 1rem;
 grid-template-columns: repeat(2, 1fr);
 }
-
+.testicon{
+    background-color: green;
+}
+.testiconred {
+    background-color: #ff0000;
+}
 .zone {
   position: relative;
   height: 12vw;   /* scales with width of viewport */
@@ -13,7 +18,7 @@ grid-template-columns: repeat(2, 1fr);
   max-height: 150px;
 
   border-radius: 15px;
-  overflow: hidden;
+
   border: none;
   padding: 0;
   cursor: pointer;
@@ -34,15 +39,46 @@ background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
      font-weight: bold;
     font-size: 27px;
     position: absolute;
-    right: 15px;
+    right: 12px;
     top: 18px;
+}
+.popup {
+  width: 125px;
+  max-height: 100px;
+  background: linear-gradient(135deg, #ff0040 0%, #6600FF 100%, #2E00C5 100%);
+  border-radius: 10px;
+  position: absolute;   /* now relative to the .zone1 row */
+  top: -85px;            /* sits below the arrow */
+  right: 40px;
+  overflow-y: auto;
+  z-index: 10;          /* keep above row content */
+ 
+}
+.popup-hidden {
+    visibility: hidden;
+}
+.sourcelisttext {
+  color: white;
+  margin: 0;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+#arrowicon{
+     color: #ffffff;
+    
+    font-size: 45px;
+    position: absolute;
+    right: 40px;
+    top: 12px;
 }
 #whitepower{
      color: #ffffff;
     font-weight: bold;
     font-size: 27px;
     position: absolute;
-    right: 15px;
+    right: 12px;
     top: 18px;
 
 }
@@ -130,33 +166,6 @@ background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
     cursor: pointer;
 }
 
-@media (max-width: 550px) {
-    #analogSlider {
-    position: absolute;
-    bottom: 20px;
-    height: 0.5em;
-    width: 40%;
-   
-}
-    .songname{
-        top:33px;
-    }
-     .zone-grid {
-    grid-template-columns: repeat(1, 1fr);
-    padding: 0.5rem;
-}
- .urlimage{
-        top: 20px;
-    }
-.roomname{
-    top: 5px;
-}
-#muteicon {
-    bottom: 5px;
-
-}
-
-}
 
 
 @media (max-width: 1000px) {
@@ -178,4 +187,33 @@ background: linear-gradient(to left, #FF0040 0%, #4000FF 0%, #FF0040 100%);
 .roomname{
     top: 0px;
 }
+
+}
+
+@media (max-width: 550px) {
+    #analogSlider {
+    position: absolute;
+    bottom: 20px;
+    height: 0.5em;
+    width: 45%;
+    left: 64px;
+}
+    .songname{
+        top:33px;
+    }
+     .zone-grid {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0.5rem;
+}
+ .urlimage{
+        top: 20px;
+    }
+.roomname{
+    top: 5px;
+}
+#muteicon {
+    bottom: 6px;
+
+}
+
 }

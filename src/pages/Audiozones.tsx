@@ -73,6 +73,13 @@ function Audio() {
                imageurl={btn.imageurl} // bracket is being refrenced in the .ts file  the imageurl on the left side is the props
                pausejoin={btn.pausejoin}
                powerjoin={btn.powerjoin}
+               arrowjoin={btn.arrowjoin}
+               playera={btn.playera}
+               playerb={btn.playerb}
+               Tvrmtv={btn.Tvrmtv}
+               basementtv={btn.basementtv}
+               masterbedtv={btn.masterbedtv}
+               gymrmtv={btn.gymrmtv}
              />
            ))}
      
