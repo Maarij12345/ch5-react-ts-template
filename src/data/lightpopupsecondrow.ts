@@ -1,7 +1,7 @@
 import greatrm from '../assets/images/greatrm.webp'
 import tvrm from '../assets/images/tvrm.jpg'
-import kitchen from '../assets/images/kitchen.jpg'
-import dining from '../assets/images/Dining.jpg'
+import kitchen from '../assets/images/kitchen.webp'
+import dining from '../assets/images/Dining.webp'
 import library from '../assets/images/library.jpg'
 import Maarij from '../assets/images/MaarijsRm.jpg'
 
