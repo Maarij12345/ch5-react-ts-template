@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-
-
-
+import keyboardarrowup from '../assets/images/keyboard-arrow-up.svg';
+import keyboardarrowdown from '../assets/images/keyboard-arrow-down.svg';
+import volumeup from '../assets/images/volume_up.svg';
+import volumeoff from '../assets/images/volume_off.svg';
 type AudioZoneProps = {
   label: string;
   mutejoin: string;
@@ -105,8 +106,13 @@ const percent = ((analogState - min) / (max - min)) * 100;
         <p className="sourcelisttext" onClick={() => { pulseSource(masterbedtv);}}>MasterBed TV</p>
     </div>
       
-     <span id="arrowicon"className= "material-symbols-outlined" onClick={() => { pulseSource(arrowjoin);}}>  {arrowState ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}</span>
-     <span id="muteicon"className= "material-symbols-outlined" onClick={() => { pulseSource(mutejoin);}}>  {digitalState ? 'volume_off' : 'volume_up'}</span>
+     
+<span id="arrowicon" onClick={() => { pulseSource(arrowjoin); }}>
+  <img src={arrowState ? keyboardarrowup : keyboardarrowdown} alt="arrow" className='arrowbtn'/>
+</span>
+     <span onClick={() => { pulseSource(mutejoin);}}> <img src={digitalState ? volumeoff : volumeup} alt="mute" className='volume'/></span>
+
+
      <span id="pause" className="material-symbols-outlined" onClick={() => { pulseSource(pausejoin);}}>  {pauseState ? 'play_arrow' : 'pause'}</span>
     <span id="skip_next" className="material-symbols-outlined">skip_next</span>
     <span id="skip_previous" className="material-symbols-outlined">skip_previous</span>

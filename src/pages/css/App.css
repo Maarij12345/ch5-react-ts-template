@@ -125,14 +125,7 @@ body {
     height: 220px;
   }
 }
-.arrow {
- 
-    
-    color: black;
-    background: none;
-    border: none;
 
-}
 .header {
   position: relative;
   height: 70px;              /* explicit header height */
@@ -141,11 +134,12 @@ body {
   justify-content: center;
 }
 
-.arrow-icon {
+.arrowimg {
   position: absolute;
   left: 10px;
   top: 16px;
-  font-size: 40px;
+
+  height: 40px;
 }
 
 
