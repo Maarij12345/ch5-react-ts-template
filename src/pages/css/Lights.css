@@ -8,13 +8,7 @@
   flex-shrink: 0;
 }
 
-.gradient-text {
-  background: linear-gradient(180deg, #9500ff, #ff7575);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
+
 
 
 .room-button {

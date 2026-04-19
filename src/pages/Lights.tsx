@@ -41,7 +41,7 @@ function Lights() {
           onClick={() => navigate('/pages/scenes')} />
       </div>
 
-      <h2 className='gradient-text'>First Floor</h2>
+      <h2>First Floor</h2>
 
       <div className="button-row">
         {Object.entries(lightPopup).map(([roomId, room]) => (
@@ -69,7 +69,7 @@ function Lights() {
         ))}
         
       </div>
-        <h2>test</h2>
+        <h2>Basement</h2>
           <div className="button-row">
         {Object.entries(lightPopup3).map(([roomId, room]) => (
           <RoomTile3

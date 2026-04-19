@@ -184,4 +184,13 @@ body {
   gap: 20px;                 /* space between buttons */
   margin-top: 10px;
 }
+.preview-window{
+  background-color: #792f2f;
+  display: flex;
+  justify-content: center;
+    margin: 0 auto;
+    
+  width: 300px;
+  height: 200px;
+}
 
