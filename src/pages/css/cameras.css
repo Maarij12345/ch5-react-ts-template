@@ -1,0 +1,144 @@
+/* ── Camera Page ─────────────────────────────────── */
+.cam-page {
+  background-color: #f4f4f7;
+}
+
+/* ── Section Label ───────────────────────────────── */
+.cam-section-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  margin: 1rem 1rem 0.6rem;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+}
+
+/* ── Camera Grid ─────────────────────────────────── */
+.cam-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  padding: 0 1rem 1rem;
+}
+
+/* ── Camera Card ─────────────────────────────────── */
+.cam-card {
+  background: #1a1a1a;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Video Wrapper ───────────────────────────────── */
+/*
+  No overflow:hidden here — that was clipping the ch5-video
+  element's bounding box, which the panel reads to position
+  the native video layer.  Let the element sit naturally.
+
+  aspect-ratio maintains a 16:9 slot for the snapshot image.
+*/
+.cam-video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
+/*
+  ch5-video fills the wrapper.
+  width/height 100% so its bounding box matches the wrapper —
+  the panel uses that bounding box to know where to draw the
+  native video layer when the user taps to play.
+*/
+.cam-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Camera Footer ───────────────────────────────── */
+.cam-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 0.85rem;
+  background: #1a1a1a;
+}
+
+.cam-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+.cam-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #e8003d;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cam-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e8003d;
+  animation: livePulse 1.6s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.3; }
+}
+
+/* ── Camera Popup Page ───────────────────────────── */
+.cam-popup-page {
+  background-color: #f4f4f7;
+}
+
+.cam-popup-wrapper {
+  margin: 0 1rem;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+  aspect-ratio: 16 / 9;
+  width: calc(100% - 2rem);
+}
+
+.cam-popup-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cam-popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem 0;
+}
+
+.cam-popup-hint {
+  font-size: 0.78rem;
+  color: #aaa;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 600px) {
+  .cam-grid {
+    grid-template-columns: 1fr;
+  }
+}

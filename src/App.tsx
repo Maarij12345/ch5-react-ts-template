@@ -8,8 +8,10 @@ import './pages/css/App.css' // Your CSS
 import './pages/css/audiozones.css'
 import './pages/css/Lights.css'
 import './pages/css/locks.css'
+import './pages/css/cameras.css'
 import Lights from './pages/Lights';
 import Cameras from './pages/cameras';
+import CameraPopup from './components/CameraPopup';
 import Locks from './pages/Locks';
 import Audio from './pages/Audiozones';
 import Home from './pages/Home';
@@ -53,6 +55,7 @@ function App() {
         <Route path="/pages/scenes" element={<Scenes />} />
         <Route path="/pages/locks" element={<Locks />} />
         <Route path="/pages/cameras" element={<Cameras />} />
+        <Route path="/pages/camera/:cameraId" element={<CameraPopup />} />
         <Route path="/pages/LightTile/:roomId" element={<RoomTile />} />
          <Route path="/pages/test/:roomId" element={<RoomTile2 />} />
          <Route path="/pages/lightrow3/:roomId" element={<RoomTile3 />} />

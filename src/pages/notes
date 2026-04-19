@@ -1,0 +1,67 @@
+
+      <h3 className="cam-section-label">LIVE FEEDS</h3>
+
+
+<div className="cam-grid">
+
+        {/* ── Camera 1 ─────────────────────────────── */}
+        <div className="cam-card">
+          <div className="cam-video-wrapper">
+            {/*
+              size="regular"  → 640 × 360 native video overlay
+              No stretch      → respects the size attribute (not full-screen)
+              No receiveStatePlay → built-in play UI is active; we auto-tap it above
+            */}
+            <ch5-video
+              id="cam1"
+              class="cam-video"
+              aspectratio="16:9"
+              sourcetype="Network"
+              snapshotrefreshrate="5"
+              size="regular"
+              url="rtsp://admin:Wzerafsh99@192.168.10.18:554/h264/ch6/sub/av_stream"
+              password="Maari377"
+            />
+          </div>
+          <div className="cam-footer">
+            <p className="cam-name">Garage</p>
+            <span className="cam-live-badge">
+              <span className="cam-live-dot" />
+              Live
+            </span>
+          </div>
+        </div>
+
+        {/* Duplicate the cam-card block above for each additional camera */}
+<div className="cam-card">
+          <div className="cam-video-wrapper">
+            {/*
+              size="regular"  → 640 × 360 native video overlay
+              No stretch      → respects the size attribute (not full-screen)
+              No receiveStatePlay → built-in play UI is active; we auto-tap it above
+            */}
+            <ch5-video
+              id="cam1"
+              class="cam-video"
+              aspectratio="16:9"
+              sourcetype="Network"
+              snapshotrefreshrate="5"
+              size="regular"
+              url="rtsp://admin:Wzerafsh99@192.168.10.18:554/h264/ch3/sub/av_stream"
+              password="Maari377"
+            />
+          </div>
+          <div className="cam-footer">
+            <p className="cam-name">Masterbed Front</p>
+            <span className="cam-live-badge">
+              <span className="cam-live-dot" />
+              Live
+            </span>
+          </div>
+        </div>
+
+
+
+
+
+      </div>
