@@ -15,11 +15,15 @@ import CameraPopup from './components/CameraPopup';
 import Locks from './pages/Locks';
 import Audio from './pages/Audiozones';
 import Home from './pages/Home';
+import Climate from './pages/Climate';
+import Shades from './pages/Shades';
 import Zones from './pages/audiogroups';
+import AudioSearch from './pages/audiosearch';
 import Scenes from './pages/Scenes';
 import RoomTile from './components/LightPopup';
 import RoomTile2 from './components/LightPopup2'
 import RoomTile3 from './components/LightPopup3'
+
 
 
 // Initialize eruda for panel/app debugging capabilities (in dev mode only)
@@ -52,14 +56,17 @@ function App() {
         <Route path="/pages/lights" element={<Lights />} />
         <Route path="/pages/audio" element={<Audio />} />
         <Route path="/pages/zones" element={<Zones />} />
+        <Route path="/pages/search" element={<AudioSearch />} />
         <Route path="/pages/scenes" element={<Scenes />} />
         <Route path="/pages/locks" element={<Locks />} />
+        <Route path="/pages/shades" element={<Shades />} />
         <Route path="/pages/cameras" element={<Cameras />} />
+        <Route path="/pages/climate" element={<Climate />} />
         <Route path="/pages/camera/:cameraId" element={<CameraPopup />} />
         <Route path="/pages/LightTile/:roomId" element={<RoomTile />} />
          <Route path="/pages/test/:roomId" element={<RoomTile2 />} />
          <Route path="/pages/lightrow3/:roomId" element={<RoomTile3 />} />
-   
+
 
       </Routes>
     </>

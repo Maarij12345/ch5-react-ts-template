@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'; // allows page flipping to get proper feedback from control system
-import Redselectbtn from '../components/redselectbtn';  
+import Redselectbtn from '../components/redselectbtn';
 import HomeBtn from '../components/homebtn';
 
 
-function Zones() {
+function AudioSearch() {
     const navigate = useNavigate();
     return (
         <div className="page">
@@ -11,7 +11,7 @@ function Zones() {
               <HomeBtn />
               <h1 className="title">Audio</h1>
             </div>
-               
+
       <div className="selection-container">
         <Redselectbtn
           label="ZONES"
@@ -24,14 +24,14 @@ function Zones() {
           targetPath="/pages/zones"
           onClick={() => navigate('/pages/zones')}
         />
-        
-         <Redselectbtn
+        <Redselectbtn
           label="SEARCH"
           targetPath="/pages/search"
           onClick={() => navigate('/pages/search')}
         />
       </div>
-      
+
+
         </div>
     );
 
@@ -40,4 +40,4 @@ function Zones() {
 
 
 
-export default Zones;
+export default AudioSearch;

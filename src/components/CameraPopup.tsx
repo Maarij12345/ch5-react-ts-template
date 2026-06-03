@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Backbtn from './backbtn';
 import { cameraData } from '../data/cameraData';
@@ -5,6 +6,27 @@ import { cameraData } from '../data/cameraData';
 function CameraPopup() {
   const { cameraId } = useParams<{ cameraId: string }>();
   const camera = cameraId ? cameraData[cameraId] : null;
+
+  useEffect(() => {
+    // ch5-video renders at the OS layer below the WebView. Any CSS background-color
+    // on body/html covers it completely. Override with transparent while on this page
+    // and restore the CSS rule on unmount by clearing the inline style.
+    document.body.style.backgroundColor = 'transparent';
+    document.documentElement.style.backgroundColor = 'transparent';
+    return () => {
+      document.body.style.backgroundColor = '';
+      document.documentElement.style.backgroundColor = '';
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!cameraId) return;
+    const timer = setTimeout(() => {
+      const el = document.getElementById(`cam-view-${cameraId}`);
+      if (el) el.click();
+    }, 500);
+    return () => clearTimeout(timer);
+  }, [cameraId]);
 
   if (!camera) {
     return (
@@ -19,26 +41,21 @@ function CameraPopup() {
 
   return (
     <div className="page cam-popup-page">
+      {/* Provides the page background at the OS level alongside ch5-video.
+          Without this, the page background would be transparent everywhere. */}
+      <ch5-background backgroundcolor="#f4f4f7" />
+
       <div className="header">
         <Backbtn />
         <h1 className="title">{camera.label}</h1>
       </div>
 
-      {/* ── Live feed ───────────────────────────────────────────────
-          size="large"   → larger native overlay for the dedicated view
-          stretch="true" → fills the element's own bounding box
-          snapshotrefreshrate="5" → shows a still image every 5 s while
-                                    the stream hasn't been tapped yet
-          No receiveStatePlay → built-in play button is active
-      ─────────────────────────────────────────────────────────────── */}
       <div className="cam-popup-wrapper">
         <ch5-video
           id={`cam-view-${cameraId}`}
           class="cam-popup-video"
           aspectratio="16:9"
           sourcetype="Network"
-          snapshotrefreshrate="5"
-          size="large"
           stretch="true"
           url={camera.url}
           password={camera.password}
@@ -50,7 +67,6 @@ function CameraPopup() {
           <span className="cam-live-dot" />
           Live
         </span>
-        <p className="cam-popup-hint">Tap the feed to start live stream</p>
       </div>
     </div>
   );

@@ -102,18 +102,27 @@
 }
 
 /* ── Camera Popup Page ───────────────────────────── */
+/* No CSS background — ch5-background handles it at the OS level so
+   ch5-video can punch through the WebView layer. */
 .cam-popup-page {
-  background-color: #f4f4f7;
+  background-color: transparent;
 }
 
+/*
+  No overflow:hidden — that clips the ch5-video bounding box that
+  the Crestron panel reads to position its native video overlay.
+  Explicit height via calc() (not aspect-ratio) so height:100% on
+  ch5-video resolves to a real pixel value on the Crestron runtime.
+*/
 .cam-popup-wrapper {
-  margin: 0 1rem;
+  width: calc(100vw - 2rem);
+  height: calc((100vw - 2rem) * 9 / 16);
+  max-width: calc((100vh - 160px) * 16 / 9);
+  max-height: calc(100vh - 160px);
+  margin: 0 auto;
   border-radius: 18px;
-  overflow: hidden;
-  background: #000;
+  background: transparent;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
-  aspect-ratio: 16 / 9;
-  width: calc(100% - 2rem);
 }
 
 .cam-popup-video {
@@ -140,5 +149,12 @@
 @media (max-width: 600px) {
   .cam-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (orientation: landscape) {
+  .cam-popup-wrapper {
+    width: calc(60vh * 16 / 9);
+    height: 60vh;
   }
 }

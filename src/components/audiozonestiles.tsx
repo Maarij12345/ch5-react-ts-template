@@ -3,6 +3,11 @@ import keyboardarrowup from '../assets/images/keyboard-arrow-up.svg';
 import keyboardarrowdown from '../assets/images/keyboard-arrow-down.svg';
 import volumeup from '../assets/images/volume_up.svg';
 import volumeoff from '../assets/images/volume_off.svg';
+const PowerSVG = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" className={className} fill="currentColor" aria-hidden="true">
+    <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-84 31.5-156.5T197-763l56 56q-44 44-68.5 102T160-480q0 134 93 227t227 93q134 0 227-93t93-227q0-67-24.5-125T707-707l56-56q54 54 85.5 126.5T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-360v-440h80v440h-80Z"/>
+  </svg>
+);
 type AudioZoneProps = {
   label: string;
   mutejoin: string;
@@ -120,8 +125,10 @@ const percent = ((analogState - min) / (max - min)) * 100;
   className="analogSlider" style={{ background: `linear-gradient(to right, rgb(255, 255, 255) 0%, rgb(255, 255, 255) ${percent}%, rgba(255, 255, 255, 0.58) ${percent}%, rgba(255, 255, 255, 0.58) 100%)`,
   }}
   id='analogSlider'/>
-  <span id={powerState ? 'redpower' : 'whitepower'} className="material-symbols-outlined" onClick={() => { pulseSource(powerjoin);}}>power_settings_new</span>
-<p className='songname'>{serialState}hi</p>
+  <span id="power" onClick={() => { pulseSource(powerjoin);}}>
+    <PowerSVG className={`powerbtn ${powerState ? 'power-on' : 'power-off'}`} />
+  </span>
+<p className='songname'>{serialState}</p>
 
 <img src={imageurlserial} alt="" className='urlimage'/>
 

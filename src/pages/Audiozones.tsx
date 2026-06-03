@@ -61,6 +61,11 @@ function Audio() {
           targetPath="/pages/zones"
           onClick={() => navigate('/pages/zones')}
         />
+          <Redselectbtn
+          label="SEARCH"
+          targetPath="/pages/search"
+          onClick={() => navigate('/pages/search')}
+        />
       </div>
       <div className='zone-grid'>
       {zonetiledata.map(btn => ( //iterating through homeButtons array
